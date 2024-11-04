@@ -12,6 +12,7 @@ router.put("/update-product/:id", productController.updateProduct);
 
 router.delete("/delete-product/:id", productController.deleteProduct);
 
+router.get("/products-withreviews", productController.getProductWithReview);
 
 
 

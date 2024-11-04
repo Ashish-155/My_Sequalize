@@ -51,4 +51,5 @@ db.reviews.belongsTo(db.products, {
     foreignKey: 'product_id',
     as: 'product',
 });
+
 module.exports = db;

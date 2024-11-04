@@ -106,6 +106,20 @@ const getPublishedProducts = async (req, res) => {
     }
 }
 
+// with relations
+const getProductWithReview = async (req, res) => {
+    try {
+        const products = await Products.findAll({
+            include: [{
+                model: Review,
+                as: 'reviews',
+            }]
+        });
+        res.status(200).send({ success: true, message: "Products with reviews fetched successfully.", data: products });
+    } catch (error) {
+        console.log(error);
+    }
+}
 module.exports = {
     createProduct,
     getAllProducts,
@@ -113,6 +127,7 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getPublishedProducts,
+    getProductWithReview,
 
 
 }
