@@ -5,10 +5,12 @@ const Review = db.reviews
 
 const createProduct = async (req, res) => {
     try {
-        const { title, price, description, published } = req.body;
+        const { title, name, price, description, published } = req.body;
         const product = await Products.create({
-            title, price, description, published
+            title, price, description, published,
+            name,
         });
+        return res.send({ message: "Product created successfully", data: product });
     } catch (error) {
         console.log(error);
         res.send(error);
@@ -38,7 +40,7 @@ const getSingleProduct = async (req, res) => {
                 id: id,
             }
         });
-        res.status(200).send(product);
+        res.status(200).send({ message: "Product fetched successfully", data: product });
     } catch (error) {
         console.log(error);
         res.send(error);

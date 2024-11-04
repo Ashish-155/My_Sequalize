@@ -8,7 +8,7 @@ app.use(express.json())
 
 // router
 const router = require('./routes/productRoute');
-app.use("api/products", router);
+app.use("", router);
 
 app.get("/", (req, res) => {
     res.send("Welcome to the REST API");
