@@ -36,10 +36,10 @@ db.sequelize = sequelize
 db.products = require("./productModel.js")(sequelize, DataTypes);
 db.reviews = require("./reviewModel.js")(sequelize, DataTypes);
 
-db.sequelize.sync({ force: false })
-    .then(() => {
-        console.log("Yes re-sync done.")
-    });
+// db.sequelize.sync({ force: false })
+//     .then(() => {
+//         console.log("Yes re-sync done.")
+//     });
 
 // 1 to many relationships
 db.products.hasMany(db.reviews, {
